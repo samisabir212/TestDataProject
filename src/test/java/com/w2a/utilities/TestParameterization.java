@@ -6,7 +6,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TestParameterization {
-	
+
+	/*
+	* constantly overloading the getCellData method
+	* */
+
 	@Test(dataProvider="getData")
 	public void testData(Hashtable<String,String> data){
 		
@@ -20,17 +24,24 @@ public class TestParameterization {
 	public Object[][] getData() {
 
 		ExcelReader excel = new ExcelReader(
-				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\BankManagerSuite.xlsx");
+				System.getProperty("user.dir") + "/src/test/resources/testdata/BankManagerSuite.xlsx");
 
+		//total rows of sheet
 		int rows = excel.getRowCount(Constants.DATA_SHEET);
 		System.out.println("Total rows are : " + rows);
 
-		String testName = "AddCustomerTest";
+
+		/************************************TESTNAME ONLY*****************************************************/
+
+		//the testcase name is addcustomertest not openaccount
+		//test case starts at the name of the testName
+		String testName = "OpenAccountTest";
 
 		// Find the test case start row
-
 		int testCaseRowNum = 1;
 
+		//stop when testcaserownum is greater than the data written in the rows
+		//LOOP ALWAYS BREAKS AND DATA IS RESET
 		for (testCaseRowNum = 1; testCaseRowNum <= rows; testCaseRowNum++) {
 
 			String testCaseName = excel.getCellData(Constants.DATA_SHEET, 0, testCaseRowNum);
@@ -42,11 +53,17 @@ public class TestParameterization {
 
 		System.out.println("Test case starts from row num: " + testCaseRowNum);
 
-		// Checking total rows in test case
 
+
+
+		/************************************************************************************/
+
+
+		// Checking total rows in test case
 		int dataStartRowNum = testCaseRowNum + 2;
 
 		int testRows = 0;
+
 		while (!excel.getCellData(Constants.DATA_SHEET, 0, dataStartRowNum + testRows).equals("")) {
 
 			testRows++;
@@ -68,12 +85,19 @@ public class TestParameterization {
 		System.out.println("Total cols are : " + testCols);
 
 		// Printing data
-		
+
+
+		//test rows start @ zero and column @ 1
+		//rows will stay as is but column will remain 1 because we gave 1 arguement in the testData method hashtable
+		//which shoul be equal to the total number of columns and object of 2 dimensional array
 		Object[][] data = new Object[testRows][1];
 
 		int i=0;
+
+		//for each row we need to create a hashtable
 		for (int rNum = dataStartRowNum; rNum < (dataStartRowNum + testRows); rNum++) {
 
+			//creating a hashtable called table of the string type
 			Hashtable<String,String> table = new Hashtable<String,String>();
 			
 			for (int cNum = 0; cNum < testCols; cNum++) {
@@ -81,7 +105,8 @@ public class TestParameterization {
 				//System.out.println(excel.getCellData(Constants.DATA_SHEET, cNum, rNum));
 				String testData = excel.getCellData(Constants.DATA_SHEET, cNum, rNum);
 				String colName = excel.getCellData(Constants.DATA_SHEET, cNum, colStartColNum);
-			
+
+				//putting all used col name and test data into the hashtable
 				table.put(colName, testData);
 			
 			}

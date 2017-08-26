@@ -15,7 +15,12 @@ public class ReadingExlData {
 		int rows = excel.getRowCount(Constants.DATA_SHEET);
 		System.out.println("Total rows are : "+rows);
 		
-		
+
+		/*
+		* TEST NAME GOES HERE WHEN SETTING UP READER TO TEST WHAT TESTCASE YOU WANT TO TEST'
+		* JUST STORED IN A VARIABLE.
+		* WE CAN MAKE A MORE COMPLEX WAY OF PARAMETERIZING DIFFERENT TESTCASE NAMES... ETC
+		* */
 		String testName = "AddCustomerTest";
 		
 		//Find the test case start row
@@ -24,9 +29,12 @@ public class ReadingExlData {
 		
 		
 		for(testCaseRowNum=1; testCaseRowNum<=rows; testCaseRowNum++){
-			
+
+			/*reading data from the zero column
+			* the testcase name */
 			String testCaseName = excel.getCellData(Constants.DATA_SHEET, 0, testCaseRowNum);
-			
+
+			/*if test name then break and come out of loop*/
 			if(testCaseName.equalsIgnoreCase(testName))
 				break;
 			
@@ -36,7 +44,7 @@ public class ReadingExlData {
 		
 		
 		//Checking total rows in test case
-		
+		//STARTING TEST AT ROW 2    (  O+2 = 2  )
 		int dataStartRowNum = testCaseRowNum+2;
 		
 		int testRows = 0;
