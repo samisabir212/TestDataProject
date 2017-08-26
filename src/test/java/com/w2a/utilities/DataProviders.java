@@ -1,6 +1,6 @@
 package com.w2a.utilities;
 
-import java.lang.reflect.Method;
+ import java.lang.reflect.Method;
 
 import org.testng.annotations.DataProvider;
 
@@ -11,6 +11,8 @@ public class DataProviders {
 	@DataProvider(name="bankManagerDP")
 	public static Object[][] getDataSuite1(Method m) {
 
+
+		//will return the method name
 		System.out.println(m.getName());
 		
 		ExcelReader excel = new ExcelReader(Constants.SUITE1_XL_PATH);

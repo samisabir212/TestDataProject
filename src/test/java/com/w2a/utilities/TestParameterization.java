@@ -35,7 +35,7 @@ public class TestParameterization {
 
 
 		//test case starts at the name of the testName
-		String testName = "OpenAccountTest";
+		String testName = "AddCustomerTest";
 
 		// Find the test case start row
 		int testCaseRowNum = 1;

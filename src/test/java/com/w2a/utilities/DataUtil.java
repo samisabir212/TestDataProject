@@ -7,9 +7,12 @@ import org.testng.annotations.DataProvider;
 
 public class DataUtil {
 
+
+	//check execution of all things
 	public static void checkExecution(String testSuiteName, String testCaseName, String dataRunMode,
 			ExcelReader excel) {
 
+		//suit
 		if (!isSuiteRunnable(testSuiteName)) {
 
 			throw new SkipException("Skipping the test : " + testCaseName + " as the Runmode of Test Suite : "
@@ -17,7 +20,7 @@ public class DataUtil {
 
 		}
 		
-		
+		//test
 		if (!isTestRunnable(testCaseName,excel)) {
 
 			throw new SkipException("Skipping the test : " + testCaseName + " as the Runmode of Test Case : "
@@ -25,7 +28,7 @@ public class DataUtil {
 
 		}
 		
-		
+		//run mode
 		if(dataRunMode.equalsIgnoreCase(Constants.RUNMODE_NO)){
 			
 			
