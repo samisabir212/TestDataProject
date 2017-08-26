@@ -2,8 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.w2a</groupId>
   <artifactId>TestDataProject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>DataDrivenGrid</module>
+		<module>DataDrivenGrid</module>
+	</modules>
+    <dependencies>
   <!-- Dependency for POI API -->
 		<!-- http://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
