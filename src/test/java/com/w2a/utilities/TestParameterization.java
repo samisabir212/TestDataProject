@@ -33,7 +33,7 @@ public class TestParameterization {
 
 		/************************************TESTNAME ONLY*****************************************************/
 
-		//the testcase name is addcustomertest not openaccount
+
 		//test case starts at the name of the testName
 		String testName = "OpenAccountTest";
 
@@ -71,8 +71,11 @@ public class TestParameterization {
 
 		System.out.println("Total rows of data are : " + testRows);
 
-		// Checking total cols in test case
 
+		/*****************************************************************************/
+
+		// Checking total cols in test case
+		//testcaserownum plus 1 will be the rows of the colmns to read
 		int colStartColNum = testCaseRowNum + 1;
 		int testCols = 0;
 
@@ -106,7 +109,12 @@ public class TestParameterization {
 				String testData = excel.getCellData(Constants.DATA_SHEET, cNum, rNum);
 				String colName = excel.getCellData(Constants.DATA_SHEET, cNum, colStartColNum);
 
+
 				//putting all used col name and test data into the hashtable
+				/*
+				* col name will be the key
+				* test data is the value
+				* */
 				table.put(colName, testData);
 			
 			}
