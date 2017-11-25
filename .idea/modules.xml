@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DataDrivenGrid/DataDrivenGrid.iml" filepath="$PROJECT_DIR$/DataDrivenGrid/DataDrivenGrid.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestDataProject.iml" filepath="$PROJECT_DIR$/TestDataProject.iml" />
     </modules>
   </component>
